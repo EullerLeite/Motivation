@@ -1,4 +1,4 @@
-package com.euller.motivation
+package com.euller.motivation.helper
 
 import android.content.Context
 
