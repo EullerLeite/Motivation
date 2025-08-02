@@ -1,6 +1,7 @@
 package com.euller.motivation.repository
 
 import com.euller.motivation.helper.MotivationConstants
+import kotlin.random.Random
 
 data class Phrase(val description: String, val categoty: Int)
 
@@ -8,6 +9,7 @@ class PhraseRepository {
 
     private val happy = MotivationConstants.PHRASE.HAPPY
     private val sunny = MotivationConstants.PHRASE.SUNNY
+    private val all = MotivationConstants.PHRASE.ALL
 
     private val listPhrases: List<Phrase> = listOf(
         Phrase("Não sabendo que era impossível, foi lá e fez.", happy),
@@ -25,8 +27,10 @@ class PhraseRepository {
         Phrase("Riscos devem ser corridos, porque o maior perigo é não arriscar nada!", sunny)
     )
 
-    fun getPhrase():String {
-        return "--------"
+    fun getPhrase(filter: Int): String {
+        val filtered = listPhrases.filter { it.categoty == filter || filter == all }
+        val rand = Random.nextInt(filtered.size)
+        return filtered[rand].description
     }
 
 }

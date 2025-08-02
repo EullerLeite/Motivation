@@ -24,7 +24,7 @@
         android:layout_alignBottom="@+id/view_1"
         android:layout_marginStart="32dp"
         android:src="@drawable/ic_all"
-        app:tint="@color/white" />
+        app:tint="@color/black" />
 
     <ImageView
         android:id="@+id/image_happy"
@@ -34,7 +34,7 @@
         android:layout_alignBottom="@+id/view_1"
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_happy"
-        app:tint="@color/white" />
+        app:tint="@color/black" />
 
     <ImageView
         android:id="@+id/image_sun"
@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="32dp"
         android:src="@drawable/ic_sun"
-        app:tint="@color/white" />
+        app:tint="@color/black" />
 
     <TextView
         android:id="@+id/textview_1"
