@@ -6,15 +6,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.euller.motivation.MotivationConstants
+import com.euller.motivation.helper.MotivationConstants
+import com.euller.motivation.repository.PhraseRepository
 import com.euller.motivation.R
 import com.euller.motivation.databinding.ActivityMainBinding
-import com.euller.motivation.helper.SecurityPreferences
+import com.euller.motivation.repository.SecurityPreferences
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var bidding: ActivityMainBinding
     private lateinit var securityPreferences: SecurityPreferences
+    private val phraseRepository = PhraseRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +35,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         setListeners()
         getUserName()
+        refreshPhrase()
     }
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_phrase) {
             handlePhrase()
         }
+    }
+
+    private fun refreshPhrase() {
+        bidding.textview2.text = phraseRepository.getPhrase()
     }
 
     private fun getUserName() {
